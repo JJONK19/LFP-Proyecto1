@@ -82,8 +82,7 @@ def automata (cadena):
                                         "operacion": "XD",
 
     sabriamos que es un error porque "XD" no es un token de tipo Operacion (sabemos que operacion solo puede ser "suma", "resta"
-    o "potencia"). En este ejemplo se va a seguir un enfoque que no utiliza esto por cuestiones de simplicidad, pero es aconsejable
-    implementar esa mejora.
+    o "potencia"). 
 
     Ej:
     operaciones = ["suma", "resta", "potencia"]
@@ -95,10 +94,16 @@ def automata (cadena):
     - Preguntarle a su auxiliar la lista de fondos, fuentes y formas disponibles para tenerlo en cuenta en sus reservadas.
 
     '''
-    reservadas = ["suma", "resta", "multiplciacion", "division", "potencia", "raiz", "inverso", "seno", "coseno",
-                  "tangente", "mod", "operaciones", "operacion", "valor1", "valor2", "valor3", "valor4", "valor5",
-                  "valor6", "valor7", "valor8", "valor9", "valor10", "configuraciones", "texto", "fondo", "fuente",
+    reservadas = ["operaciones", "operacion", "configuraciones", "texto", "fondo", "fuente",
                   "forma"]
+    
+    operador = ["suma", "resta", "multiplciacion", "division", "potencia", "raiz", "inverso", "seno", "coseno",
+                  "tangente", "mod"]
+    
+    valor = ["valor1", "valor2", "valor3", "valor4", "valor5", "valor6", "valor7", "valor8", "valor9", "valor10",
+             "valor11", "valor12", "valor13", "valor14", "valor15", "valor16", "valor17", "valor18", "valor19", "valor20"]
+    
+
 
     #----- Automata
     # Recorre caracter por caracter usando el indice como si fuese un array. Pueden cambiarlo usando "for caracter in cadena"
@@ -139,7 +144,7 @@ def automata (cadena):
                 columna += 1
 
             elif cadena[i] == ":":
-                tokens.append([cadena[i], "Punto y Coma", fila, columna])
+                tokens.append([cadena[i], "Dos Puntos", fila, columna])
                 temp = ""
                 columna += 1
 
@@ -236,6 +241,10 @@ def automata (cadena):
                 #minusculas y que no hay errores de ese tipo.
                 if temp in reservadas:
                     tokens.append([temp, "Reservada", fila, columna])
+                elif temp in operador:
+                    tokens.append([temp, "Operador", fila, columna])
+                elif temp in valor:
+                    tokens.append([temp, "Valor", fila, columna])
                 else:
                     tokens.append([temp, "Cadena", fila, columna])
                 temp = ""
@@ -263,10 +272,10 @@ def automata (cadena):
     resultado = [tokens, errores]
     return resultado
 
-
+'''
 #Prueba
 def main():
-    entrada = '''
+    entrada = ' ''
                 {
                     "operaciones": [
                                         {
@@ -281,7 +290,7 @@ def main():
                                                 "fondo": "azul"
                                             }
                                         ]
-                }'''
+                }' ''
     salida = automata(entrada)
     print("TOKENS")
     for token in salida[0]:
@@ -294,4 +303,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-
+'''
