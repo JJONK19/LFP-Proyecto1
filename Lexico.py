@@ -97,7 +97,7 @@ def automata (cadena):
     reservadas = ["operaciones", "operacion", "configuraciones", "texto", "fondo", "fuente",
                   "forma"]
     
-    operador = ["suma", "resta", "multiplciacion", "division", "potencia", "raiz", "inverso", "seno", "coseno",
+    operador = ["suma", "resta", "multiplicacion", "division", "potencia", "raiz", "inverso", "seno", "coseno",
                   "tangente", "mod"]
     
     valor = ["valor1", "valor2", "valor3", "valor4", "valor5", "valor6", "valor7", "valor8", "valor9", "valor10",

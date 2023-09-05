@@ -498,7 +498,7 @@ def main():
                 {
                     "operaciones": [
                                         {
-                                            "operacion":"suma",
+                                            "operacion":"multiplicacion",
                                             "valor1": 10,
                                             "valor2": [
                                                 {
